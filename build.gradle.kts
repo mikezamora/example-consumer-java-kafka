@@ -42,3 +42,35 @@ tasks {
 		useJUnitPlatform()
 	}
 }
+
+fun getGitHash(): String {
+	val process = Runtime.getRuntime().exec("git rev-parse --short HEAD")
+	val sb: StringBuilder = StringBuilder()
+	while (true) {
+		val char = process.inputStream.read()
+		if (char == -1) break
+		sb.append(char.toChar())
+	}
+	return sb.toString().trim()
+}
+
+fun getGitBranch(): String {
+	val process = Runtime.getRuntime().exec("git rev-parse --abbrev-ref HEAD")
+	val sb: StringBuilder = StringBuilder()
+	while (true) {
+		val char = process.inputStream.read()
+		if (char == -1) break
+		sb.append(char.toChar())
+	}
+	return sb.toString().trim()
+}
+
+pact {
+	publish {
+		pactDirectory = "build/pacts"
+		pactBrokerUrl = "https://mzamorahappymoney.pactflow.io"
+		pactBrokerToken = "wGb_AxvRRLCkrXgO_WrbWQ"
+		tags = listOf(getGitBranch(), "test", "prod")
+		consumerVersion = getGitHash()
+	}
+}
