@@ -128,6 +128,6 @@ start: docker
 	./gradlew bootRun
 
 test-events:
-	docker exec -it pactflow-example-consumer-java-kafka_kafka_1 /tmp/scripts/producer.sh
+	docker exec -it example-consumer-java-kafka_kafka_1 /tmp/scripts/producer.sh
 
 .PHONY: test start docker docker-stop docker-rm docker-logs
