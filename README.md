@@ -1,6 +1,17 @@
-# Example Java Kafka Consumer
+#Kafka Consumer Pact Contract Validator
 
-[![Build Status](https://travis-ci.com/pactflow/example-consumer-java-kafka.svg?branch=master)](https://travis-ci.com/pactflow/example-consumer-java-kafka)
+##Running Locally
+`./gradlew bootRun` then start services in `kafka-custer.yml` separately
+or
+`make start` will start the app and required services
+
+##Creating Pacts and Running Tests
+`./gradlew check` will create and test the pacts specified in `ProductsPactTest.java` and store the results in `build/pacts`
+
+##Deploying Pacts
+`./gradlew pactPublish` will deploy the pacts specified in `build/pacts` to https://mzamorahappymoney.pactflow.io/
+
+##Other Information
 
 This is an example of a Java kafka consumer that uses Pact, [Pactflow](https://pactflow.io) and Travis CI to ensure that it is compatible with the expectations its consumers have of it.
 
