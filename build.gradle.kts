@@ -26,8 +26,9 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.springframework.kafka:spring-kafka")
+
 	testImplementation("au.com.dius:pact-jvm-consumer-junit5:4.0.10")
-	testImplementation("au.com.dius:pact-jvm-provider-spring:4.0.10")
+//	testImplementation("au.com.dius:pact-jvm-provider-spring:4.0.10")
 
 	runtimeOnly("com.h2database:h2")
   	compileOnly("org.projectlombok:lombok")
